@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1342598712",
+    "project_id": "fir-mate-5cb0e",
+    "storage_bucket": "fir-mate-5cb0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1342598712:android:bbdf986a469fc92d5780cd",
+        "android_client_info": {
+          "package_name": "com.example.smate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1342598712-2jiupeqvqf40t1o8v284concv5uegaik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA36CX1x1kt1ygI-XmTSqRRWiXdTAVUIdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1342598712-2jiupeqvqf40t1o8v284concv5uegaik.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
