@@ -5,17 +5,22 @@
       <map>
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_chat_bubble_24.xml" value="0.121" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_library_books_24.xml" value="0.245" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/action_bar.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_feed.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_host.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_validate_code.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/chat_item.xml" value="0.2359375" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/chat_item_recieved.xml" value="0.2359375" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/chat_item_sent.xml" value="0.2359375" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/feed_item.xml" value="0.2359375" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_chat.xml" value="0.2359375" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_chat.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_profile.xml" value="0.2359375" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/image_slider_layout_item.xml" value="0.2359375" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/popup_feed_input.xml" value="0.2359375" />
       </map>
     </option>
   </component>

@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
@@ -20,24 +22,28 @@ public class MySliderAdapter extends SliderViewAdapter<MySliderAdapter.SliderAda
         private Context context;
         private List<SliderItem> mSliderItems = new ArrayList<>();
 
-        public MySliderAdapter(Context context) {
+
+
+        public MySliderAdapter(Context context, ArrayList<SliderItem> items) {
             this.context = context;
+            mSliderItems = items;
+
         }
 
-        public void renewItems(List<SliderItem> sliderItems) {
-            this.mSliderItems = sliderItems;
-            notifyDataSetChanged();
-        }
-
-        public void deleteItem(int position) {
-            this.mSliderItems.remove(position);
-            notifyDataSetChanged();
-        }
-
-        public void addItem(SliderItem sliderItem) {
-            this.mSliderItems.add(sliderItem);
-            notifyDataSetChanged();
-        }
+//        public void renewItems(List<SliderItem> sliderItems) {
+//            this.mSliderItems = sliderItems;
+//            notifyDataSetChanged();
+//        }
+//
+//        public void deleteItem(int position) {
+//            this.mSliderItems.remove(position);
+//            notifyDataSetChanged();
+//        }
+//
+//        public void addItem(SliderItem sliderItem) {
+//            this.mSliderItems.add(sliderItem);
+//            notifyDataSetChanged();
+//        }
 
         @Override
         public SliderAdapterVH onCreateViewHolder(ViewGroup parent) {
@@ -50,20 +56,20 @@ public class MySliderAdapter extends SliderViewAdapter<MySliderAdapter.SliderAda
 
             SliderItem sliderItem = mSliderItems.get(position);
 
-            viewHolder.textViewDescription.setText(sliderItem.getDescription());
-            viewHolder.textViewDescription.setTextSize(16);
-            viewHolder.textViewDescription.setTextColor(Color.WHITE);
+//            viewHolder.textViewDescription.setText(sliderItem.getDescription());
+//            viewHolder.textViewDescription.setTextSize(16);
+//            viewHolder.textViewDescription.setTextColor(Color.WHITE);
             Glide.with(viewHolder.itemView)
                     .load(sliderItem.getImageUrl())
                     .fitCenter()
                     .into(viewHolder.imageViewBackground);
 
-            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(context, "This is item in position " + position, Toast.LENGTH_SHORT).show();
-                }
-            });
+//            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(context, "This is item in position " + position, Toast.LENGTH_SHORT).show();
+//                }
+//            });
         }
 
         @Override
@@ -77,13 +83,13 @@ public class MySliderAdapter extends SliderViewAdapter<MySliderAdapter.SliderAda
             View itemView;
             ImageView imageViewBackground;
             TextView imageGifContainer;
-            TextView textViewDescription;
+            //TextView textViewDescription;
 
             public SliderAdapterVH(View itemView) {
                 super(itemView);
                 imageViewBackground = itemView.findViewById(R.id.iv_auto_image_slider);
                 imageGifContainer = itemView.findViewById(R.id.iv_gif_container);
-                textViewDescription = itemView.findViewById(R.id.tv_auto_image_slider);
+//                textViewDescription = itemView.findViewById(R.id.tv_auto_image_slider);
                 this.itemView = itemView;
             }
         }

@@ -32,6 +32,7 @@ public class ValidateCode extends AppCompatActivity {
     Button btnValidate;
     TextView etPassword2;
     ProgressBar progressBar;
+    private String phone;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,9 @@ public class ValidateCode extends AppCompatActivity {
         etPassword2 = findViewById(R.id.etPassword2);
 
         String PhoneNumber = getIntent().getStringExtra("PhoneNumber");
+        phone = PhoneNumber;
         sendVerificationCode(PhoneNumber);
+
 
         btnValidate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +115,7 @@ public class ValidateCode extends AppCompatActivity {
 
                     if (creationTimestamp+10 > lastSignInTimestamp) {
                         Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+                        intent.putExtra("phoneNumber",phone);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                     } else {

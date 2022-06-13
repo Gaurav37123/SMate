@@ -14,6 +14,9 @@ public class UserProfile
         Year = year;
     }
 
+    public UserProfile() {
+    }
+
     public String getPhoneNumber() {
         return PhoneNumber;
     }

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: E./AndroidStudioProjects/S_Mate/app/libs/flashytabbarandroid-1.0.0.aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9db23d735d4d57748e03d78b6bda91bc/transformed/flashytabbarandroid-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9db23d735d4d57748e03d78b6bda91bc/transformed/flashytabbarandroid-1.0.0/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9db23d735d4d57748e03d78b6bda91bc/transformed/flashytabbarandroid-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6125a41c1db63d5ea0232746b106d807/transformed/flashytabbarandroid-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/6125a41c1db63d5ea0232746b106d807/transformed/flashytabbarandroid-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/6125a41c1db63d5ea0232746b106d807/transformed/flashytabbarandroid-1.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -11,22 +11,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone"
-                android:text="Overlapping Description"
-                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <com.smarteist.autoimageslider.SliderView
                 android:id="@+id/imageSlider"
@@ -48,6 +39,16 @@
                 app:sliderIndicatorUnselectedColor="#FFF"
                 app:sliderScrollTimeInSec="1"
                 app:sliderStartAutoCycle="true" />
+            <TextView
+                android:id="@+id/ContentDesc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Overlapping Description"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
@@ -61,11 +62,22 @@
                     android:id="@+id/btnDownload"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:contentDescription="Download button"
                     android:layout_marginStart="50dp"
                     android:background="@drawable/ic_baseline_cloud_download_24"
-                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnDispDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_baseline_star_24"
+                    android:contentDescription="@string/app_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/RatingBar"
+                    app:layout_constraintStart_toEndOf="@+id/btnDownload"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <me.zhanghai.android.materialratingbar.MaterialRatingBar
@@ -75,6 +87,7 @@
                     android:layout_height="wrap_content"
                     android:contentDescription="Star Rating"
                     android:layout_marginEnd="30dp"
+                    android:background="@color/white"
                     android:isIndicator="true"
                     android:rating="3"
                     app:layout_constraintBottom_toBottomOf="parent"

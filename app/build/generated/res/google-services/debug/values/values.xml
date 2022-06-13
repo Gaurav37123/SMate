@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1342598712-2jiupeqvqf40t1o8v284concv5uegaik.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1342598712</string>
+    <string name="google_api_key" translatable="false">AIzaSyA36CX1x1kt1ygI-XmTSqRRWiXdTAVUIdM</string>
+    <string name="google_app_id" translatable="false">1:1342598712:android:bbdf986a469fc92d5780cd</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyA36CX1x1kt1ygI-XmTSqRRWiXdTAVUIdM</string>
+    <string name="google_storage_bucket" translatable="false">fir-mate-5cb0e.appspot.com</string>
+    <string name="project_id" translatable="false">fir-mate-5cb0e</string>
+</resources>

@@ -1,15 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Chat.ChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<!--    <ListView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/ChatList"-->
+<!--        android:layout_marginBottom="?actionBarSize"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ChatList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Chat"
-        android:gravity="center"/>
+        android:layout_marginBottom="55dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <View-->
+<!--        android:id="@+id/view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="#e0e0e0"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/layout_gchat_chatbox" />-->
+
+    <RelativeLayout
+        android:id="@+id/layout_gchat_chatbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_toStartOf="@+id/btnSendMessage"
+            android:background="@android:color/transparent"
+            android:hint="Enter Message"
+            android:inputType="text"
+            android:maxLines="50"
+            tools:ignore="Autofill,TouchTargetSizeCheck" />
+
+        <Button
+            android:id="@+id/btnSendMessage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_baseline_send_24"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

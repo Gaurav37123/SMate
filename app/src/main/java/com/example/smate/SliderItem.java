@@ -1,21 +1,20 @@
 package com.example.smate;
 
 public class SliderItem {
-    String Description;
     String ImageUrl;
 
-    public SliderItem(String description, String imageUrl) {
-        Description = description;
+    public SliderItem(String imageUrl) {
+
         ImageUrl = imageUrl;
     }
 
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
+//    public String getDescription() {
+//        return Description;
+//    }
+//
+//    public void setDescription(String description) {
+//        Description = description;
+//    }
 
     public String getImageUrl() {
         return ImageUrl;

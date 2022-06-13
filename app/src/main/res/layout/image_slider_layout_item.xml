@@ -17,10 +17,7 @@
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_margin="20dp"
-           android:text="5"
-           android:gravity="center"
-           android:drawableRight="@drawable/ic_baseline_star_24"/>
+        android:layout_margin="20dp" />
 
 
     <FrameLayout
