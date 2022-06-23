@@ -23,16 +23,18 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.mukesh.OnOtpCompletionListener;
+import com.mukesh.OtpView;
 
 import java.util.concurrent.TimeUnit;
 
 public class ValidateCode extends AppCompatActivity {
 
     String CodeBySystem,code;
-    Button btnValidate;
     TextView etPassword2;
     ProgressBar progressBar;
     private String phone;
+    OtpView otpView;
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +42,16 @@ public class ValidateCode extends AppCompatActivity {
         setContentView(R.layout.activity_validate_code);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-        btnValidate = findViewById(R.id.btnValidate);
-        etPassword2 = findViewById(R.id.etPassword2);
+        otpView = findViewById(R.id.etPassword2);
 
         String PhoneNumber = getIntent().getStringExtra("PhoneNumber");
         phone = PhoneNumber;
         sendVerificationCode(PhoneNumber);
 
-
-        btnValidate.setOnClickListener(new View.OnClickListener() {
+        otpView.setOtpCompletionListener(new OnOtpCompletionListener() {
             @Override
-            public void onClick(View v) {
-                code = etPassword2.getText().toString().trim();
+            public void onOtpCompleted(String otp) {
+                code = otp;
                 verifyCode(code);
             }
         });

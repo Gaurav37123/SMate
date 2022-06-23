@@ -53,8 +53,9 @@ public class HomeFragment extends Fragment {
         Notes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent.putExtra("category","Notes");
-                startActivity(intent);
+                Intent NotesIntent = new Intent(getContext(), NotesActivity.class);
+                //NotesIntent.putExtra("category","Notes");
+                startActivity(NotesIntent);
             }
         });
         Sports.setOnClickListener(new View.OnClickListener() {

@@ -10,13 +10,15 @@ public class FeedItem {
     String download;
     String contentDesc;
     String publisher;
+    String node;
 
-    public FeedItem(ArrayList<SliderItem> url, int rating, String download, String contentDesc, String publisher) {
+    public FeedItem(ArrayList<SliderItem> url, int rating, String download, String contentDesc, String publisher,String node) {
         this.url = url;
         this.rating = rating;
         this.download = download;
         this.contentDesc = contentDesc;
         this.publisher = publisher;
+        this.node = node;
     }
 
     public FeedItem(FeedItem fd)
@@ -26,8 +28,17 @@ public class FeedItem {
         this.download = fd.download;
         this.contentDesc = fd.contentDesc;
         this.publisher = fd.publisher;
+        this.node = fd.node;
     }
     public FeedItem() {
+    }
+
+    public String getNode() {
+        return node;
+    }
+
+    public void setNode(String node) {
+        this.node = node;
     }
 
     public String getPublisher() {

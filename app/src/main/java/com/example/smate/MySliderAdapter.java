@@ -61,7 +61,7 @@ public class MySliderAdapter extends SliderViewAdapter<MySliderAdapter.SliderAda
 //            viewHolder.textViewDescription.setTextColor(Color.WHITE);
             Glide.with(viewHolder.itemView)
                     .load(sliderItem.getImageUrl())
-                    .fitCenter()
+                    .centerInside()
                     .into(viewHolder.imageViewBackground);
 
 //            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {

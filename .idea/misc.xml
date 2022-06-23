@@ -3,24 +3,41 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable-v24/ic_baseline_add_24_black.xml" value="0.245" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/background.xml" value="0.2545" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.2555" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_chat_bubble_24.xml" value="0.121" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_check_circle_outline_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_cloud_download_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_description_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_get_app_24.xml" value="0.2375" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.245" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_library_books_24.xml" value="0.245" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_mobile_friendly_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_photo_camera_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/spinner_bg.xml" value="0.2545" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/action_bar.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_feed.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_feed.xml" value="0.20521590423257802" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_host.xml" value="0.2" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_validate_code.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_notes.xml" value="0.24895833333333334" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_validate_code.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/chat_item.xml" value="0.2359375" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/chat_item_recieved.xml" value="0.2359375" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/chat_item_sent.xml" value="0.2359375" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/feed_item.xml" value="0.2359375" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_chat.xml" value="0.264" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/feed_item.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_chat.xml" value="0.20521590423257802" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/fragment_profile.xml" value="0.2359375" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/image_slider_layout_item.xml" value="0.2359375" />
-        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/popup_feed_input.xml" value="0.2359375" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/notes_item_layout.xml" value="0.2359375" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/popup_feed_input.xml" value="0.264" />
       </map>
     </option>
   </component>

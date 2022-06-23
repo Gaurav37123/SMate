@@ -16,11 +16,25 @@
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Chat"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ChatList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="55dp" />
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/textView"
+        android:layout_marginBottom="70dp" />
 
 <!--    <View-->
 <!--        android:id="@+id/view"-->
@@ -29,11 +43,18 @@
 <!--        android:background="#e0e0e0"-->
 <!--        app:layout_constraintBottom_toTopOf="@+id/layout_gchat_chatbox" />-->
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardElevation="5dp"
+        android:layout_alignParentBottom="true">
+
+
     <RelativeLayout
         android:id="@+id/layout_gchat_chatbox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_height="50dp"
         android:background="@color/white">
 
 
@@ -46,20 +67,24 @@
             android:layout_toStartOf="@+id/btnSendMessage"
             android:background="@android:color/transparent"
             android:hint="Enter Message"
-            android:inputType="text"
-            android:maxLines="50"
             tools:ignore="Autofill,TouchTargetSizeCheck" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnSendMessage"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@drawable/ic_baseline_send_24"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     </RelativeLayout>
-
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>

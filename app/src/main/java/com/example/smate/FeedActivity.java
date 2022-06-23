@@ -3,9 +3,11 @@ package com.example.smate;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -13,12 +15,15 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
@@ -51,6 +56,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import aglibs.loading.skeleton.layout.SkeletonRecyclerView;
+
 public class FeedActivity extends AppCompatActivity {
 
     private static final int IMAGE_REQUEST = 1;
@@ -61,13 +68,13 @@ public class FeedActivity extends AppCompatActivity {
     ArrayList<Uri> imageUri = new ArrayList<>();
     ViewGroup viewGroup;
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
+    ProgressDialog progressDialog;
     ArrayList<StorageTask> uploadTask = new ArrayList<>();
     String category;
     DatabaseReference fdb = FirebaseDatabase.getInstance().getReference().child("home");
-    FloatingActionButton btnAdd;
+    CardView btnAdd;
     ArrayList<FeedItem> list = new ArrayList<>();
-    RecyclerView listView;
+    SkeletonRecyclerView listView;
     RecyclerView.LayoutManager layoutManager;
 
     @Override
@@ -75,14 +82,19 @@ public class FeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
+        progressDialog = new ProgressDialog(FeedActivity.this);
         viewGroup = (ViewGroup) ((ViewGroup) this.findViewById(android.R.id.content)).getChildAt(0);
         listView = findViewById(R.id.listView);
         btnAdd = findViewById(R.id.btnAdd);
 
         category = getIntent().getStringExtra("category");
+        if(category.equals("Notes"))
+        {
+            btnAdd.setVisibility(View.GONE);
+        }
 
 
-        FeedAdapter listAdapter = new FeedAdapter(this,list);
+        FeedAdapter listAdapter = new FeedAdapter(this,list,category);
         listView.setAdapter(listAdapter);
         layoutManager = new LinearLayoutManager(this);
         listView.setLayoutManager(layoutManager);
@@ -91,22 +103,31 @@ public class FeedActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
+                listView.startLoading();
                 for(DataSnapshot Snap : snapshot.getChildren())
                 {
                     ArrayList<SliderItem> tempUrl = new ArrayList<>();
                     FeedItem item = new FeedItem();
                     item.setContentDesc(Snap.child("contentDesc").getValue().toString());
-                    for(DataSnapshot urlSnap : Snap.child("url").getChildren())
+//                    for(DataSnapshot urlSnap : Snap.child("url").getChildren())
+//                    {
+//                        tempUrl.add(new SliderItem(urlSnap.getValue().toString()));
+//                    }
+                    int UrlCount = Integer.parseInt(Snap.child("url").child("value").getValue().toString());
+                    for(int i=1;i<=UrlCount;i++)
                     {
-                        tempUrl.add(new SliderItem(urlSnap.getValue().toString()));
+                        tempUrl.add(new SliderItem(Snap.child("url").child(i+"").getValue().toString()));
                     }
                     item.setUrl(tempUrl);
                     item.setPublisher(Snap.child("publisher").getValue().toString());
                     item.setDownload(Snap.child("download").getValue().toString());
-                    item.setRating(Integer.parseInt(Snap.child("rating").getValue().toString()));
+                    item.setRating(Integer.parseInt(Snap.child("rating").child("value").getValue().toString()));
+                    item.setNode(Snap.getKey());
                     list.add(item);
+                    //Log.e("Item Add","Add Successful");
                 }
                 listAdapter.notifyDataSetChanged();
+                listView.stopLoading();
             }
 
             @Override
@@ -148,24 +169,33 @@ public class FeedActivity extends AppCompatActivity {
                         UploadItem.setUrl(urls);
                         HashMap<String,Object> uploadItemMap = new HashMap<>();
                         HashMap<String,Object> urlMap = new HashMap<>();
+                        HashMap<String,Object> ratingMap = new HashMap<>();
+                        urlMap.put("value",UploadItem.getUrl().size());
                         for(int i=0;i<UploadItem.getUrl().size();i++)
                         {
                             urlMap.put(""+(i+1),UploadItem.getUrl().get(i).getImageUrl());
                         }
                         uploadItemMap.put("url",urlMap);
-                        uploadItemMap.put("rating",UploadItem.getRating());
+                        ratingMap.put("value",UploadItem.getRating());
+                        uploadItemMap.put("rating",ratingMap);
                         uploadItemMap.put("download",UploadItem.getDownload());
                         uploadItemMap.put("contentDesc",UploadItem.getContentDesc());
                         uploadItemMap.put("publisher",user.getPhoneNumber());
 
                         UploadRequest(uploadItemMap);
+                        UploadItem = new FeedItem();
+                        imageUri.clear();
+                        uploadTask.clear();
+                        urls.clear();
                         break;
                     }
                     catch (Exception e)
                     {
                         e.printStackTrace();
+                        break;
                     }
                 }
+                progressDialog.dismiss();
             }
         });
 
@@ -174,32 +204,54 @@ public class FeedActivity extends AppCompatActivity {
             public void onClick(View view) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                 View popupView = inflater.inflate(R.layout.popup_feed_input,viewGroup,false);
-                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int width = LinearLayout.LayoutParams.MATCH_PARENT;
                 int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                boolean focusable = true; // lets taps outside the popup also dismiss it
-                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+//                boolean focusable = true; // lets taps outside the popup also dismiss it
+                final PopupWindow popupWindow = new PopupWindow(popupView, width, height,true);
                 popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
                 Button btnRequest;
                 TextInputEditText etDesc;
+                ImageView btnAddImage;
+                ImageButton btnClose;
                 etDesc = popupView.findViewById(R.id.etDesc);
                 etSlider = popupView.findViewById(R.id.etSlider);
                 btnRequest = popupView.findViewById(R.id.btnRequest);
+                btnAddImage = popupView.findViewById(R.id.btnAddImage);
+                btnClose = popupView.findViewById(R.id.btnClose);
 
-                etSlider.setOnClickListener(new View.OnClickListener() {
+                btnAddImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imageUri.clear();
+                        etSlider.setVisibility(View.VISIBLE);
                         OpenFileChooser();
+                    }
+                });
+                btnClose.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        popupWindow.dismiss();
                     }
                 });
                 btnRequest.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        progressDialog.setMessage("Uploading");
+                        progressDialog.show();
+                        if( uploadImageThread.getState() != Thread.State.NEW)
+                            uploadImageThread.run();
+                        else
                         uploadImageThread.start();
+//                        uploadImageThread();
                         String desc = etDesc.getText().toString().trim();
                         UploadItem.setContentDesc(desc);
-                        uploadRequestThread.start();
+                        if(uploadRequestThread.getState() != Thread.State.NEW)
+                            uploadRequestThread.run();
+                        else
+                            uploadRequestThread.start();
+                        popupWindow.dismiss();
+//                        uploadRequestThread();
                     }
                 });
 
@@ -301,4 +353,61 @@ public class FeedActivity extends AppCompatActivity {
             etSlider.startAutoCycle();
         }
     }
+//    void uploadImageThread()
+//    {
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Toast.makeText(FeedActivity.this, "Thread started", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        uploadFile();
+//        runOnUiThread(new Runnable() {
+//            @Override
+//            public void run() {
+//                Toast.makeText(FeedActivity.this, "Thread finished", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+//    void uploadRequestThread()
+//    {
+//        long time = System.currentTimeMillis();
+//        while (System.currentTimeMillis() < time+10000)
+//        {
+//            try {
+//                UploadItem.setRating(0);
+//                UploadItem.setDownload("null");
+//                if(urls.size() != imageUri.size())
+//                    continue;
+//                UploadItem.setUrl(urls);
+//                HashMap<String,Object> uploadItemMap = new HashMap<>();
+//                HashMap<String,Object> urlMap = new HashMap<>();
+//                HashMap<String,Object> ratingMap = new HashMap<>();
+//                urlMap.put("value",UploadItem.getUrl().size());
+//                for(int i=0;i<UploadItem.getUrl().size();i++)
+//                {
+//                    urlMap.put(""+(i+1),UploadItem.getUrl().get(i).getImageUrl());
+//                }
+//                uploadItemMap.put("url",urlMap);
+//                ratingMap.put("value",UploadItem.getRating());
+//                uploadItemMap.put("rating",ratingMap);
+//                uploadItemMap.put("download",UploadItem.getDownload());
+//                uploadItemMap.put("contentDesc",UploadItem.getContentDesc());
+//                uploadItemMap.put("publisher",user.getPhoneNumber());
+//
+//                UploadRequest(uploadItemMap);
+//                UploadItem = new FeedItem();
+//                imageUri.clear();
+//                uploadTask.clear();
+//                urls.clear();
+//                break;
+//            }
+//            catch (Exception e)
+//            {
+//                e.printStackTrace();
+//                break;
+//            }
+//        }
+//        progressDialog.dismiss();
+//    }
 }

@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -42,12 +43,15 @@ public class ChatFragment extends Fragment {
     View view;
     RecyclerView chatList;
     UserProfile profile = new UserProfile();
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("chat");
+    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("chat");
     ArrayList<ChatMessage> MessageList = new ArrayList<>();
     EditText etMessage;
-    Button btnSendMessage;
+    ImageButton btnSendMessage;
     public ChatFragment() {
         // Required empty public constructor
+    }
+    public ChatFragment(String category,String node) {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("home").child(category).child(node).child("review");
     }
 
     @Override

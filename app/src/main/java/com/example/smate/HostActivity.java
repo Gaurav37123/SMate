@@ -1,5 +1,6 @@
 package com.example.smate;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -13,10 +14,16 @@ import com.cuberto.flashytabbarandroid.TabFlashyAnimator;
 import com.example.smate.Chat.ChatFragment;
 import com.example.smate.Home.HomeFragment;
 import com.example.smate.Login.LoginActivity;
+import com.example.smate.Login.SignUpActivity;
 import com.example.smate.Profile.ProfileFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
@@ -72,6 +79,23 @@ public class HostActivity extends AppCompatActivity {
             startActivity(intent);
             this.finish();
         }
+        FirebaseDatabase.getInstance().getReference().child("user").child(user.getPhoneNumber()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(!snapshot.exists())
+                {
+                    Intent intent = new Intent(HostActivity.this, SignUpActivity.class);
+                    intent.putExtra("phoneNumber",user.getPhoneNumber().substring(3));
+                    startActivity(intent);
+                    HostActivity.this.finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
