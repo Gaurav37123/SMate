@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.h07000223:flycoTabLayout:3.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/9f02410ac2a57bb5f677feab48db0171/transformed/flycoTabLayout-3.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9f02410ac2a57bb5f677feab48db0171/transformed/flycoTabLayout-3.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/9f02410ac2a57bb5f677feab48db0171/transformed/flycoTabLayout-3.0.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.h07000223/flycoTabLayout/3.0.0/aac0dda8b3d8344bfefa260237a802f354f8b5b0/flycoTabLayout-3.0.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.h07000223/flycoTabLayout/3.0.0/14660cdeec3e6531fe388b04dbfa1be311366c8d/flycoTabLayout-3.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

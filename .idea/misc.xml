@@ -12,6 +12,7 @@
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.2555" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_cloud_download_24.xml" value="0.2555" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_description_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.2555" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_get_app_24.xml" value="0.2375" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_keyboard_arrow_down_24.xml" value="0.245" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_library_books_24.xml" value="0.245" />
@@ -19,7 +20,9 @@
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_photo_camera_24.xml" value="0.2555" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.2555" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_baseline_thumb_up_24.xml" value="0.2555" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2555" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/spinner_bg.xml" value="0.2545" />
+        <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/drawable/spinner_bg2.xml" value="0.2545" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/action_bar.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_feed.xml" value="0.20521590423257802" />
         <entry key="..\:/AndroidStudioProjects/S_Mate/app/src/main/res/layout/activity_host.xml" value="0.2" />

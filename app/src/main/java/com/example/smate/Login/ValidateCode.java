@@ -65,7 +65,7 @@ public class ValidateCode extends AppCompatActivity {
             String code = phoneAuthCredential.getSmsCode();
             if(code!=null)
             {
-                etPassword2.setText(code);
+//                etPassword2.setText(code);
                 verifyCode(code);
             }
         }

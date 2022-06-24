@@ -20,7 +20,7 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:layout_gravity="bottom"
         android:background="@color/white"
         android:contentDescription="@string/app_name"
@@ -31,6 +31,19 @@
 
 
     </com.google.android.material.tabs.TabLayout>
+<!--    <com.flyco.tablayout.CommonTabLayout-->
+<!--        android:id="@+id/tabLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:minHeight="?actionBarSize"-->
+<!--        android:background="@color/white"-->
+<!--        android:contentDescription="@string/app_name"-->
+<!--        android:elevation="20dp"-->
+<!--        app:tabGravity="fill"-->
+<!--        app:tabIndicatorHeight="0dp"-->
+<!--        app:tabMode="fixed"-->
+<!--        />-->
 
 
 </LinearLayout>

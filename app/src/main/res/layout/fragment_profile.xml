@@ -11,19 +11,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/app_back2"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".Profile.ProfileFragment">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Profile"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/purple_500"
+            android:backgroundTint="@color/themeDark"
             app:cardCornerRadius="10dp"
-            android:layout_margin="15dp"
+            android:layout_margin="25dp"
             app:cardElevation="10dp">
 
             <LinearLayout
@@ -105,7 +119,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
             app:cardElevation="7dp"
-            android:layout_margin="15dp">
+            android:layout_margin="20dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,7 +152,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
             app:cardElevation="7dp"
-            android:layout_margin="15dp">
+            android:layout_margin="20dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -171,7 +185,7 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="5dp"
             app:cardElevation="7dp"
-            android:layout_margin="15dp">
+            android:layout_margin="20dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -203,14 +217,17 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
             android:text="Logout"
-            android:id="@+id/btnLogout"
-            android:elevation="5dp" />
+            android:drawableTop="@drawable/ic_baseline_exit_to_app_24"
+            android:backgroundTint="@color/themeDark"
+            android:id="@+id/btnLogout" />
 
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>
 
 <!--</FrameLayout>-->

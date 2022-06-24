@@ -209,29 +209,32 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.Viewholder>{
         holder.btnReview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (holder.ItemReview.getVisibility() == View.VISIBLE)
+                    holder.ItemReview.setVisibility(View.GONE);
 
-                holder.ItemReview.setVisibility(View.VISIBLE);
-                holder.btnSendReview.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String message = holder.etReview.getText().toString().trim();
-                        if(!message.isEmpty())
-                        {
-                            ChatMessage SendMessage = new ChatMessage();
-                            Date date = new Date();
-                            SendMessage.setMessage(message);
-                            SendMessage.setSenderPhone(profile[0].getPhoneNumber());
-                            SendMessage.setSenderName(profile[0].getName());
-                            SimpleDateFormat TimeFormat = new SimpleDateFormat("hh.mm a");
-                            SendMessage.setTime(TimeFormat.format(date));
-                            SimpleDateFormat DateFormat = new SimpleDateFormat("dd.mm.yy");
-                            SendMessage.setDate(DateFormat.format(date));
-                            databaseReference.push().setValue(SendMessage);
-                            holder.etReview.setText("");
-                            reviewAdapter.notifyDataSetChanged();
+                else {
+                    holder.ItemReview.setVisibility(View.VISIBLE);
+                    holder.btnSendReview.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String message = holder.etReview.getText().toString().trim();
+                            if (!message.isEmpty()) {
+                                ChatMessage SendMessage = new ChatMessage();
+                                Date date = new Date();
+                                SendMessage.setMessage(message);
+                                SendMessage.setSenderPhone(profile[0].getPhoneNumber());
+                                SendMessage.setSenderName(profile[0].getName());
+                                SimpleDateFormat TimeFormat = new SimpleDateFormat("hh.mm a");
+                                SendMessage.setTime(TimeFormat.format(date));
+                                SimpleDateFormat DateFormat = new SimpleDateFormat("dd.mm.yy");
+                                SendMessage.setDate(DateFormat.format(date));
+                                databaseReference.push().setValue(SendMessage);
+                                holder.etReview.setText("");
+                                reviewAdapter.notifyDataSetChanged();
+                            }
                         }
-                    }
-                });
+                    });
+                }
             }
         });
 

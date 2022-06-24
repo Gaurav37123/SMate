@@ -3,15 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="40dp"
-    android:layout_marginRight="40dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="5dp"
-        android:backgroundTint="#B2CBF4">
+        android:backgroundTint="#B0CAF6">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -81,6 +79,9 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
+                app:hintTextColor="@color/themeDark"
+                android:textColorHint="@color/themeDark"
+                app:boxStrokeColor="#2D559E"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Add Description">
                 <com.google.android.material.textfield.TextInputEditText

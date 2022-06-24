@@ -8,6 +8,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
 
 import com.cuberto.flashytabbarandroid.TabFlashyAnimator;
@@ -16,6 +17,11 @@ import com.example.smate.Home.HomeFragment;
 import com.example.smate.Login.LoginActivity;
 import com.example.smate.Login.SignUpActivity;
 import com.example.smate.Profile.ProfileFragment;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.SegmentTabLayout;
+import com.flyco.tablayout.SlidingTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -32,6 +38,8 @@ public class HostActivity extends AppCompatActivity {
     TabFlashyAnimator tabFlashyAnimator;
     TabLayout tabLayout;
     ViewPager viewPager;
+//    CommonTabLayout commonTabLayout;
+
 
     private ArrayList<Fragment> fragments = new ArrayList<Fragment>();
     private String Titles[] = new String[]{"Home","Chat","Profile"};
@@ -41,6 +49,8 @@ public class HostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_host);
         viewPager = findViewById(R.id.myViewPager);
         tabLayout = findViewById(R.id.tabLayout);
+//        commonTabLayout = findViewById(R.id.tabLayout);
+
         fragments.add(new HomeFragment());
         fragments.add(new ChatFragment());
         fragments.add(new ProfileFragment());
@@ -59,6 +69,7 @@ public class HostActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
+
         tabFlashyAnimator = new TabFlashyAnimator(tabLayout);
         tabFlashyAnimator.addTabItem(Titles[0],R.drawable.ic_baseline_home_24);
         tabFlashyAnimator.addTabItem(Titles[1],R.drawable.ic_baseline_chat_bubble_24);
@@ -67,6 +78,10 @@ public class HostActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(tabFlashyAnimator);
 
+//        ArrayList<CustomTabEntity> tabs = new ArrayList<>();
+//        tabs.add(new TabEn)
+//        commonTabLayout.setTabData();
+//        commonTabLayout.setViewPager(viewPager);
     }
     @Override
     protected void onStart() {
